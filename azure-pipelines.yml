@@ -1,6 +1,11 @@
 trigger:
 - '*'
 
+variables:
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  dotnetSdkVersion: '8.0.x'
+  buildConfiguration: 'Release'
+
 stages:
 - stage: 'Build'
   displayName: 'Build the web application'
@@ -11,11 +16,6 @@ stages:
       name: RetoAzure
       demands:
       - agent.name -equals MyAgent
-
-    variables:
-      wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-      dotnetSdkVersion: '8.0.x'
-      buildConfiguration: 'Release'
 
     steps:
     - task: UseDotNet@2
